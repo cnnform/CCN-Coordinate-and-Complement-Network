@@ -10,7 +10,7 @@ import torchvision.transforms as transforms
 import torch.backends.cudnn as cudnn
 from tensorboardX import SummaryWriter
 
-from ccn_resnet_model import se_resnet101
+from ccn_resnet_model import CCN_resnet101
 
 class DefaultConfigs(object):
     # 1.string parameters
