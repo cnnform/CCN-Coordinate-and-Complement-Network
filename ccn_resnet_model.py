@@ -101,11 +101,11 @@ class Bottleneck(nn.Module):
 
 
 
-class SEResNet(nn.Module):
+class CCNResNet(nn.Module):
 
     def __init__(self, block, layers, num_classes=1000):
         self.inplanes = 64
-        super(SEResNet, self).__init__()
+        super(CCNResNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3,
                                bias=False)
         self.bn1 = nn.BatchNorm2d(64)
@@ -254,10 +254,10 @@ class BottleneckX(nn.Module):
         return res
 
 
-class SEResNeXt(nn.Module):
+class CCNResNeXt(nn.Module):
 
     def __init__(self, block, layers, cardinality=32, num_classes=1000):
-        super(SEResNeXt, self).__init__()
+        super(CCNResNeXt, self).__init__()
         self.cardinality = cardinality
         self.inplanes = 64
 
@@ -321,55 +321,55 @@ class SEResNeXt(nn.Module):
         return x
 
 
-def se_resnet50(**kwargs):
-    """Constructs a SE-ResNet-50 model.
+def CCN_resnet50(**kwargs):
+    """Constructs a CCN-ResNet-50 model.
     Args:
         num_classes = 1000 (default)
     """
-    model = SEResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
+    model = CCNResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     return model
 
 
-def se_resnet101(**kwargs):
-    """Constructs a SE-ResNet-101 model.
+def CCN_resnet101(**kwargs):
+    """Constructs a CCN-ResNet-101 model.
     Args:
         num_classes = 1000 (default)
     """
-    model = SEResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
+    model = CCNResNet(Bottleneck, [3, 4, 23, 3], **kwargs)
     return model
 
 
-def se_resnet152(**kwargs):
-    """Constructs a SE-ResNet-152 model.
+def CCN_resnet152(**kwargs):
+    """Constructs a CCN-ResNet-152 model.
     Args:
         num_classes = 1000 (default)
     """
-    model = SEResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
+    model = CCNResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     return model
 
 
-def se_resnext50(**kwargs):
-    """Constructs a SE-ResNeXt-50 model.
+def CCN_resnext50(**kwargs):
+    """Constructs a CCN-ResNeXt-50 model.
     Args:
         num_classes = 1000 (default)
     """
-    model = SEResNeXt(BottleneckX, [3, 4, 6, 3], **kwargs)
+    model = CCNResNeXt(BottleneckX, [3, 4, 6, 3], **kwargs)
     return model
 
 
-def se_resnext101(**kwargs):
-    """Constructs a SE-ResNeXt-101 model.
+def CCN_resnext101(**kwargs):
+    """Constructs a CCN-ResNeXt-101 model.
     Args:
         num_classes = 1000 (default)
     """
-    model = SEResNeXt(BottleneckX, [3, 4, 23, 3], **kwargs)
+    model = CCNResNeXt(BottleneckX, [3, 4, 23, 3], **kwargs)
     return model
 
 
-def se_resnext152(**kwargs):
-    """Constructs a SE-ResNeXt-152 model.
+def CCN_resnext152(**kwargs):
+    """Constructs a CCN-ResNeXt-152 model.
     Args:
         num_classes = 1000 (default)
     """
-    model = SEResNeXt(BottleneckX, [3, 8, 36, 3], **kwargs)
+    model = CCNResNeXt(BottleneckX, [3, 8, 36, 3], **kwargs)
     return model
